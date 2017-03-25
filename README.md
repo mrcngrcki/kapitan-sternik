@@ -1,0 +1,2 @@
+# kapitan-sternik
+heroku
