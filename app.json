@@ -1,0 +1,6 @@
+{
+  "name": "kapitan-sternik",
+  "description": "Ahoj",
+  "image": "heroku/java",
+  "addons": [ "heroku-postgresql" ]
+}

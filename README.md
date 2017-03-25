@@ -1,2 +1,1 @@
-# kapitan-sternik
-heroku
+# new-heroo
