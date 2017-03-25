@@ -1,4 +1,4 @@
-package pl.sternik.kk.heroo;
+package pl.sternik.mg.heroku;
 
 import java.io.IOException;
 
