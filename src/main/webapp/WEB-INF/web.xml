@@ -11,7 +11,7 @@
 
 	<servlet>
 		<servlet-name>hello</servlet-name>
-		<servlet-class>pl.sternik.kk.heroo.HelloServlet</servlet-class>
+		<servlet-class>pl.sternik.mg.heroku.HelloServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
