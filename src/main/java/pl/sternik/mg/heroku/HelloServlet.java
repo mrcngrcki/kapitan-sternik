@@ -19,6 +19,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 public class HelloServlet extends HttpServlet {
 
+	HikariDataSource dataSource;
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ServletOutputStream out = resp.getOutputStream();
@@ -26,26 +28,12 @@ public class HelloServlet extends HttpServlet {
 		out.write("Hello Heroku".getBytes());
 		System.out.println("---- hello -----");
 
-//		HikariConfig config = new HikariConfig();
-//		config.setJdbcUrl(System.getenv("JDBC_DATABASE_URL"));
-//		final HikariDataSource dataSource = (config.getJdbcUrl() != null) ? new HikariDataSource(config)
-//				: new HikariDataSource();
-//
-//		try (Connection connection = dataSource.getConnection()) {
-//			Statement stmt = connection.createStatement();
-//			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-//			stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-//			ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-//
-//			ArrayList<String> output = new ArrayList<String>();
-//			while (rs.next()) {
-//				output.add("Read from DB: " + rs.getTimestamp("tick"));
-//				out.write(("\nRead from DB: " + rs.getTimestamp("tick")).getBytes());
-//			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		HikariConfig config = new HikariConfig();
+		config.setJdbcUrl(System.getenv("JDBC_DATABASE_URL"));
+		if(config.getJdbcUrl() != null)
+			dataSource = new HikariDataSource(config);
+		else
+			dataSource = new HikariDataSource();
 
 		out.flush();
 		out.close();
