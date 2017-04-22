@@ -15,7 +15,7 @@
 	</properties>
 
 	<build>
-		<finalName>new-heroo</finalName>
+		<finalName>kapitan-sternik</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>

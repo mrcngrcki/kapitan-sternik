@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @WebFilter(filterName="/MyRESTFilter2",
 //servletNames={"HelloServlet"},
@@ -18,6 +20,13 @@ public class MyRESTFilter2 implements javax.servlet.Filter{
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
 		System.out.println("-------- 22222222 ----------");
+		
+		HttpServletRequest r = (HttpServletRequest) req;
+		HttpSession session = r.getSession(true);
+		if(session != null){
+			System.out.println("Mam sesje!");
+		}
+		
 		chain.doFilter(req,  res);
 		System.out.println("------ 77777777 -------");
 	}
