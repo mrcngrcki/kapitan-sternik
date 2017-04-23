@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout ::site-head">
+<title>Title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+  <header th:replace="layout :: site-header" />
+
+  <div class="ListaZnaczkow" th:unless"$lists.isEmpty(stampsAll)}">
+  <h2>Lista znaczków</h2>
+  <table border>
+  <thead>
+  	<tr>
+  		<th th:text="#{klaser.numerKatalogowy}">Numer katalogowy</th>
+  		<th th:text="#{klaser.nominal}">Nominał</th>
+  		<th th:text="#{klaser.opis}">Opis</th>
+  		<th th:text="#{klaser.waluta}">Waluta</th>
+  		<th th:text="#{klaser.cenaNabycia}">Cena nabycia</th>
+  		<th th:text="#{klaser.dataNabycia}">Data nabycia</th>
+  		<th th:text="#{klaser.krajPochodzenia}">Numer katalogowy</th>
+  		<th th:text="#{klaser.status}">Numer katalogowy</th>
+  		<th th:text="#{klaser.operacje}">Numer katalogowy</th>
+  	</tr>
+  	</thead>
+  	<tbody>
+  		<tr th:each="stamp : ${stampsAll}">
+  			<td th:text="${stamp.numerKatalogowy}">1</td>
+  			<td th:text="${stamp.nominal}">1</td>
+  			<td th:text="${stamp.opis}">1</td>
+  			<td th:text="${stamp.waluta}">1</td>
+  			<td th:text="${stamp.cenaNabycia}">1</td>
+  			<td th:text="${stamp.dataNabycia}">1</td>
+  			<td th:text="${stamp.krajPochodzenia}">1</td>
+  			<td th:text="${stamp.status}">1</td>
+  			<td>
+				<button type="submit" name="remove" th:value="${stamp.numerKatalogowy}" th:text="#{klaser.remove}">Usuń</button>
+				<a href="znaczek.html" th:href="@{|/znaczki/${stamp.numerKatalogowy}|}">
+					<button type="button" th:text="#{klaser.edit}">Edytuj</button>
+				</a>
+			</td>
+  		</tr>
+  	</tbody>
+  </table>
+
+  <footer th:replace="layout :: site-footer" />
+
+</body>
+
+</html>
